@@ -22,6 +22,7 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      lua_ls = { settings = { Lua = { format = { enable = false } } } },
     },
     -- customize how language servers are attached
     handlers = {
