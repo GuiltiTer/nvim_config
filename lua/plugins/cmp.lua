@@ -11,14 +11,36 @@ end
 local apply_cmdline = function()
   local cmp = require "cmp"
   cmp.setup.cmdline("/", {
-    mapping = cmp.mapping.preset.cmdline(),
+    mapping = cmp.mapping.preset.cmdline {
+      ["<C-j>"] = {
+        c = function()
+          if cmp.visible() then cmp.select_next_item() end
+        end,
+      },
+      ["<C-k>"] = {
+        c = function()
+          if cmp.visible() then cmp.select_prev_item() end
+        end,
+      },
+    },
     sources = {
       { name = "buffer" },
     },
   })
 
   cmp.setup.cmdline(":", {
-    mapping = cmp.mapping.preset.cmdline(),
+    mapping = cmp.mapping.preset.cmdline {
+      ["<C-j>"] = {
+        c = function()
+          if cmp.visible() then cmp.select_next_item() end
+        end,
+      },
+      ["<C-k>"] = {
+        c = function()
+          if cmp.visible() then cmp.select_prev_item() end
+        end,
+      },
+    },
     sources = cmp.config.sources({
       { name = "path" },
     }, {
