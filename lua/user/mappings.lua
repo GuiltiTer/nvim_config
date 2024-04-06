@@ -26,10 +26,6 @@ return {
     -- searchbox
     ["<Leader>r"] = { "<cmd>SearchBoxReplace confirm=menu<cr>", desc = "SearchBox" },
 
-    -- lspsaga
-    ["<Leader>lS"] = { "<cmd>Lspsaga outline<cr>", desc = "Symbols outline" },
-    ["<Leader>lk"] = { "<cmd>Lspsaga finder<cr>", desc = "References" },
-
     -- telescope
     ["<Leader>h"] = { function() require("user.telescope").buffers() end, desc = "Buffers" },
 

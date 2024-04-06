@@ -65,6 +65,8 @@ return {
 
         -- lspsaga
         gp = { "<cmd>Lspsaga peek_definition<cr>", desc = "Peek Definition" },
+        ["<Leader>lS"] = { "<cmd>Lspsaga outline<cr>", desc = "Symbols outline" },
+        ["<Leader>lk"] = { "<cmd>Lspsaga finder<cr>", desc = "References" },
       },
     },
     -- A custom `on_attach` function to be run after the default `on_attach` function
