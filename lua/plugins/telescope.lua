@@ -5,6 +5,7 @@ return {
     { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable "make" == 1, build = "make" },
   },
   opts = function(_, opts)
+    require("telescope").load_extension "undo"
     require("telescope").load_extension "refactoring"
     return opts
   end,

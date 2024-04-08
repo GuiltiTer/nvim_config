@@ -16,6 +16,7 @@ return {
 
     -- undotree
     ["<Leader>U"] = { "<cmd>UndotreeToggle<cr>", desc = "Undo Tree" },
+    ["<Leader>fu"] = { "<cmd>Telescope undo<cr>", desc = "Find undo" },
 
     -- File Manager
     ["<Leader>o"] = { function() require("tfm").open() end, desc = "File Manager" },
