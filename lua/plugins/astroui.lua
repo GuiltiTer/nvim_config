@@ -6,7 +6,10 @@ return {
     colorscheme = require("user.env").colorscheme,
     highlights = {
       init = { -- this table overrides highlights in all themes
-        -- Normal = { bg = "#000000" },
+        StatusLine = { bg = "none" },
+        NeoTreeNormal = { bg = "none" },
+        NeoTreeNormalNC = { bg = "none" },
+        WhichKeyFloat = { bg = "bg" },
       },
       astrotheme = { -- a table of overrides/changes when applying the astrotheme theme
         -- Normal = { bg = "#000000" },
