@@ -28,12 +28,13 @@ return {
     local status = require "astroui.status"
     opts.statusline = {
       hl = { fg = "fg", bg = "bg" },
-      status.component.mode(),
-      status.component.git_branch(),
+      status.component.git_branch {
+        git_branch = { icon = { kind = "GitBranch", padding = { right = 1, left = 1 } } },
+      },
       status.component.file_info {
         file_modified = { padding = { left = 0, right = 0 } },
         filename = { padding = { left = 0, right = 0 } },
-        file_icon = { padding = { left = 0, right = 1 } },
+        file_icon = { padding = { left = 1, right = 1 } },
         filetype = false,
       },
       status.component.git_diff(),
@@ -50,7 +51,6 @@ return {
           icon = { kind = "ActiveTS", padding = { right = 0 } },
         },
       },
-      status.component.nav(),
     }
     opts.winbar = nil
     return opts
