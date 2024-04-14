@@ -29,6 +29,7 @@ return {
 
     -- telescope
     ["<Leader>h"] = { function() require("user.telescope").buffers() end, desc = "Buffers" },
+    ["?"] = { function() require("telescope.builtin").current_buffer_fuzzy_find() end, desc = "search" },
 
     -- refactoring
     ["<Leader>R"] = { function() require("telescope").extensions.refactoring.refactors() end, desc = "Refactor Menu" },
