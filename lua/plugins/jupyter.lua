@@ -54,6 +54,11 @@ local jupynium_config = function()
       hi! link JupyniumMagicCommand Keyword
   ]]
 
+  local notebook = require("toggleterm.terminal").Terminal:new {
+    cmd = "jupyter notebook --NotebookApp.token='' --NotebookApp.password=''",
+    hidden = true,
+  }
+
   utils.register_local_keymap {
     name = "jupynium",
     pattern = "*.ju.*",
@@ -63,6 +68,7 @@ local jupynium_config = function()
       { "<localleader>a", "o# %%<esc>o", "Add cell" },
 
       { "<localleader>s", "Server" },
+      { "<localleader>sn", function() notebook:toggle() end, "Start notebook server" },
       { "<localleader>sa", "<cmd>JupyniumStartAndAttachToServer<cr>", "Jupynium start & attach" },
       { "<localleader>ss", "<cmd>JupyniumStartSync<cr>", "Jupynium start sync" },
       { "<localleader>sS", "<cmd>JupyniumStopSync<cr>", "Jupynium stop sync" },
