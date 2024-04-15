@@ -10,6 +10,10 @@ return {
     ["<C-y>"] = { '"qy', desc = "Yank to register q" },
     ["<C-p>"] = { '"qp', desc = "Pase to register q" },
 
+    -- quickfiq
+    ["]c"] = { "<cmd>cnext<cr>", desc = "Next qfix" },
+    ["[c"] = { "<cmd>cprev<cr>", desc = "Previous qfix" },
+
     -- bufjump
     ["go"] = { function() require("bufjump").backward() end, desc = "Go out" },
     ["gi"] = { function() require("bufjump").forward() end, desc = "Go in" },
