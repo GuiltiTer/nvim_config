@@ -20,17 +20,20 @@ return {
       vim.g[k] = v
     end
 
-    utils.register_local_keymap("molten", { "*.py" }, {
-      ["<localleader>"] = {
-        name = "Run",
-        k = {
-          name = "Kernel",
-          i = { "<cmd>MoltenInterrupt<cr>", "Molten kernel interrupt" },
-        },
-        ["<localleader>"] = { "<cmd>MoltenEvaluateOperator<cr>", "Evaluate operator" },
-        l = { "<cmd>MoltenEvaluateLine<cr>", "Evaluate line" },
-        e = { ":<c-u>MoltenEvaluateVisual<cr>", "Evaluate visual", mode = { "v" } },
+    utils.register_local_keymap {
+      name = "molten",
+      pattern = "*.py",
+      exclude = ".ju.",
+      mappings = {
+        { "<localleader>", "Run" },
+        { "<localleader>r", "<cmd>MoltenEvaluateLine<cr>", "Evaluate line" },
+        { "<localleader>r", ":<c-u>MoltenEvaluateVisual<cr>", "Evaluate visual", mode = { "v" } },
+        { "<localleader><localleader>", "<cmd>MoltenEvaluateOperator<cr>", "Evaluate operator" },
+
+        { "<localleader>k", "Kernel" },
+        { "<localleader>kr", "<cmd>MoltenRestart<cr>", "Restart" },
+        { "<localleader>ki", "<cmd>MoltenInterrupt<cr>", "Interrupt" },
       },
-    })
+    }
   end,
 }

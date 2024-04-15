@@ -54,21 +54,24 @@ local jupynium_config = function()
       hi! link JupyniumMagicCommand Keyword
   ]]
 
-  utils.register_local_keymap("jupynium", { "*.ju.*" }, {
-    ["<leader>;"] = {
-      name = "Run",
-      r = { "<cmd>JupyniumExecuteSelectedCells<cr>", "Jupynium run cell", mode = { "n", "v" } },
-      a = { "<cmd>JupyniumStartAndAttachToServer<cr>", "Jupynium start & attach" },
-      s = { "<cmd>JupyniumStartSync<cr>", "Jupynium start sync" },
-      S = { "<cmd>JupyniumStopSync<cr>", "Jupynium stop sync" },
-      c = { "i# %%<Enter><Esc>", "Add cell" },
-      k = {
-        name = "Kernel",
-        r = { "<cmd>JupyniumKernelRestart<cr>", "Restart" },
-        i = { "<cmd>JupyniumKernelInterrupt<cr>", "Interrupt" },
-      },
+  utils.register_local_keymap {
+    name = "jupynium",
+    pattern = "*.ju.*",
+    mappings = {
+      { "<localleader>", "Run" },
+      { "<localleader>r", "<cmd>JupyniumExecuteSelectedCells<cr>", "Jupynium run cell", mode = { "n", "v" } },
+      { "<localleader>a", "o# %%<esc>o", "Add cell" },
+
+      { "<localleader>s", "Server" },
+      { "<localleader>sa", "<cmd>JupyniumStartAndAttachToServer<cr>", "Jupynium start & attach" },
+      { "<localleader>ss", "<cmd>JupyniumStartSync<cr>", "Jupynium start sync" },
+      { "<localleader>sS", "<cmd>JupyniumStopSync<cr>", "Jupynium stop sync" },
+
+      { "<localleader>k", "Kernel" },
+      { "<localleader>kr", "<cmd>JupyniumKernelRestart<cr>", "Restart" },
+      { "<localleader>ki", "<cmd>JupyniumKernelInterrupt<cr>", "Interrupt" },
     },
-  })
+  }
 end
 
 return {
