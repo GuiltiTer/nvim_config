@@ -8,11 +8,10 @@ return {
   dependencies = { "willothy/wezterm.nvim", config = true },
   init = function()
     local opts = {
-      molten_output_win_border = { "", "", "", "" },
-      molten_output_win_cover_gutter = false,
+      molten_output_win_border = "none",
       molten_virt_text_output = true,
       molten_auto_open_output = false,
-      molten_enter_output_behavior = "no_open",
+      molten_enter_output_behavior = "open_and_enter",
       molten_image_provider = "wezterm",
       molten_split_size = 20,
     }
@@ -28,7 +27,10 @@ return {
         { "<localleader>", "Run" },
         { "<localleader>r", "<cmd>MoltenEvaluateLine<cr>", "Evaluate line" },
         { "<localleader>r", ":<c-u>MoltenEvaluateVisual<cr>", "Evaluate visual", mode = { "v" } },
+        { "<localleader>R", ":<c-u>MoltenEvaluateVisual<cr>", "Re-evaluate cell" },
         { "<localleader><localleader>", "<cmd>MoltenEvaluateOperator<cr>", "Evaluate operator" },
+        { "<localleader>o", ":noautocmd MoltenEnterOutput<cr>", "Open output" },
+        { "<localleader>i", "<cmd>MoltenImagePopup<cr>", "Image popup" },
 
         { "<localleader>k", "Kernel" },
         { "<localleader>kr", "<cmd>MoltenRestart<cr>", "Restart" },
