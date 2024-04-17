@@ -10,7 +10,7 @@ return {
     ["<C-y>"] = { '"qy', desc = "Yank to register q" },
     ["<C-p>"] = { '"qp', desc = "Pase to register q" },
 
-    -- quickfiq
+    -- quickfix
     ["]c"] = { "<cmd>cnext<cr>", desc = "Next qfix" },
     ["[c"] = { "<cmd>cprev<cr>", desc = "Previous qfix" },
 
