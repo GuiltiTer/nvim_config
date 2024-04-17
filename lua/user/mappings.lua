@@ -7,8 +7,7 @@ return {
     -- basics
     ["<Leader>w"] = { "<cmd>wa<cr>", desc = "Save All" },
     ["Q"] = { "<cmd>q<cr>", desc = "Quit" },
-    ["<C-y>"] = { '"qy', desc = "Yank to register q" },
-    ["<C-p>"] = { '"qp', desc = "Pase to register q" },
+    ["<C-p>"] = { '"0p', desc = "Put last yanked" },
 
     -- quickfix
     ["]c"] = { "<cmd>cnext<cr>", desc = "Next qfix" },
