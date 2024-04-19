@@ -62,6 +62,15 @@ return {
     cmp.setup(opts)
     extend_sources(opts)
     apply_cmdline()
+
+    opts.matching = {
+      disallow_fuzzy_matching = false,
+      disallow_fullfuzzy_matching = false,
+      disallow_partial_fuzzy_matching = false,
+      disallow_partial_matching = false,
+      disallow_prefix_unmatching = false,
+      disallow_symbol_nonprefix_matching = false,
+    }
   end,
 
   dependencies = { "hrsh7th/cmp-cmdline" },
