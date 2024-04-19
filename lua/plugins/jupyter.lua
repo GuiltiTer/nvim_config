@@ -55,7 +55,7 @@ local jupynium_config = function()
   ]]
 
   local notebook = require("toggleterm.terminal").Terminal:new {
-    cmd = "jupyter notebook --NotebookApp.token='' --NotebookApp.password=''",
+    cmd = "jupyter notebook  --no-browser --NotebookApp.token='' --NotebookApp.password=''",
     hidden = true,
   }
 
