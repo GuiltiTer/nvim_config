@@ -1,8 +1,9 @@
-local config = function()
-  require("lspsaga").setup {
-    ui = {
-      border = "rounded",
-    },
+return {
+  "nvimdev/lspsaga.nvim",
+  event = "LspAttach",
+  opts = {
+    lightbulb = { enable = false },
+    ui = { border = "rounded" },
     symbol_in_winbar = { enable = false },
     definition = {
       keys = {
@@ -19,12 +20,6 @@ local config = function()
         split = "<C-s>",
       },
     },
-  }
-end
-
-return {
-  "nvimdev/lspsaga.nvim",
-  config = config,
+  },
   dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
-  event = "LspAttach",
 }
