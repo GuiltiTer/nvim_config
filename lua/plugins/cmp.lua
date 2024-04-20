@@ -1,13 +1,3 @@
-local sources = {
-  { name = "otter" },
-}
-
-local extend_sources = function(opts)
-  for _, source in ipairs(sources) do
-    table.insert(opts.sources, source)
-  end
-end
-
 local apply_cmdline = function()
   local cmp = require "cmp"
   cmp.setup.cmdline("/", {
@@ -60,7 +50,7 @@ return {
   config = function(_, opts)
     local cmp = require "cmp"
     cmp.setup(opts)
-    extend_sources(opts)
+
     apply_cmdline()
 
     opts.matching = {
