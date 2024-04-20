@@ -65,7 +65,7 @@ local jupynium_config = function()
     mappings = {
       { "<localleader>", "Run" },
       { "<localleader>r", "<cmd>JupyniumExecuteSelectedCells<cr>", "Jupynium run cell", mode = { "n", "v" } },
-      { "<localleader>a", "o# %%<esc>o", "Add cell" },
+      { "<localleader>a", "o<esc>i# %%<cr><esc>", "Add cell" },
 
       { "<localleader>s", "Server" },
       { "<localleader>sn", function() notebook:toggle() end, "Start notebook server" },
