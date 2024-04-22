@@ -2,7 +2,7 @@ return {
   { "goolord/alpha-nvim", enabled = false },
   {
     "echasnovski/mini.starter",
-    version = "*",
+    -- version = "*",
     config = function()
       local starter = require "mini.starter"
       local hooks = {
