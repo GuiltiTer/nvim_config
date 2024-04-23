@@ -2,9 +2,11 @@ return {
   "Exafunction/codeium.nvim",
   event = "InsertEnter",
   config = function()
-    require("codeium").setup()
-    local config = require("cmp").get_config()
+    require("codeium").setup {
+      enable_chat = true,
+    }
 
+    local config = require("cmp").get_config()
     table.insert(config.sources, 1, {
       name = "codeium",
       group_index = 1,
