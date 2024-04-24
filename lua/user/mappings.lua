@@ -1,5 +1,8 @@
 return {
   x = {
+    -- basics
+    ["<C-p>"] = { '"0p', desc = "Put last yanked" },
+
     -- refactoring
     ["<leader>R"] = { function() require("telescope").extensions.refactoring.refactors() end, desc = "Refactor menu" },
   },
