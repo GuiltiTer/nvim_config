@@ -34,7 +34,7 @@ return {
     ["<Leader>r"] = { "<cmd>SearchBoxReplace confirm=menu<cr>", desc = "SearchBox" },
 
     -- telescope
-    ["<Leader>h"] = { function() require("user.telescope").buffers() end, desc = "Buffers" },
+    ["<Tab>"] = { function() require("user.telescope").buffers() end, desc = "Buffers" },
     ["?"] = { function() require("telescope.builtin").current_buffer_fuzzy_find() end, desc = "search" },
 
     -- refactoring
