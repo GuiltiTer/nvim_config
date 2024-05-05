@@ -59,6 +59,8 @@ local jupynium_config = function()
     hidden = true,
   }
 
+  local textobj = require "jupynium.textobj"
+
   utils.register_local_keymap {
     name = "jupynium",
     pattern = "*.ju.*",
@@ -66,6 +68,11 @@ local jupynium_config = function()
       { "<localleader>", "Run" },
       { "<localleader>r", "<cmd>JupyniumExecuteSelectedCells<cr>", "Jupynium run cell", mode = { "n", "v" } },
       { "<localleader>a", "o<esc>i# %%<cr><esc>", "Add cell" },
+
+      { "<localleader>d", "<cmd>JupyniumScrollDown<cr>", "Scroll down" },
+      { "<localleader>u", "<cmd>JupyniumScrollUp<cr>", "Scroll up" },
+      { "]c", function() textobj.goto_next_cell_separator() end, "Goto next cell" },
+      { "[c", function() textobj.goto_previous_cell_separator() end, "Goto prev cell" },
 
       { "<localleader>s", "Server" },
       { "<localleader>sn", function() notebook:toggle() end, "Start notebook server" },
