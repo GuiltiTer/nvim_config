@@ -42,7 +42,6 @@ return {
       status.component.cmd_info(),
       components.visual_counter,
       status.component.fill(),
-      status.component.diagnostics(),
       status.component.lsp(),
       status.component.virtual_env(),
       status.component.treesitter {
