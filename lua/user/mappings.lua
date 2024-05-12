@@ -33,6 +33,9 @@ return {
     -- searchbox
     ["<Leader>r"] = { "<cmd>SearchBoxReplace confirm=menu<cr>", desc = "SearchBox" },
 
+    -- spectre
+    ["<Leader>s"] = { function() require("spectre").toggle() end, desc = "Spectre" },
+
     -- telescope
     ["<Tab>"] = { function() require("user.telescope").buffers() end, desc = "Buffers" },
     ["?"] = { function() require("telescope.builtin").current_buffer_fuzzy_find() end, desc = "search" },
