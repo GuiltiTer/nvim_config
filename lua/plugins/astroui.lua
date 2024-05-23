@@ -48,7 +48,7 @@ return {
       ArrowLeft = "",
       ArrowRight = "",
       BufferClose = "",
-      DapBreakpoint = "",
+      DapBreakpoint = "",
       DapBreakpointCondition = "",
       DapBreakpointRejected = "",
       DapLogPoint = ".>",
