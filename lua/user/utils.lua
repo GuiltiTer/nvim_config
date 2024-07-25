@@ -25,7 +25,7 @@ function M.register_local_keymap(opts)
     for _, desc in ipairs(descs) do
       wk_keys[desc[1]] = { name = desc[2], mode = desc.mode or "n" }
     end
-    require("which-key").register(wk_keys, { buffer = 0 })
+    require("which-key").add(wk_keys, { buffer = 0 })
   end
 
   local function contains(str, pattern)
