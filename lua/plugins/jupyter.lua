@@ -60,34 +60,37 @@ local jupynium_config = function()
   }
 
   local textobj = require "jupynium.textobj"
-
   utils.register_local_keymap {
     name = "jupynium",
     pattern = "*.ju.*",
     mappings = {
-      { "<localleader>", "Run" },
-      { "<localleader>r", "<cmd>JupyniumExecuteSelectedCells<cr>", "Jupynium run cell", mode = { "n", "v" } },
-      { "<localleader>a", "o<esc>i# %%<cr><esc>", "Add cell" },
+      {
+        lhs = "<localleader>r",
+        rhs = "<cmd>JupyniumExecuteSelectedCells<cr>",
+        desc = "Jupynium run cell",
+        mode = { "n", "v" },
+      },
+      { lhs = "<localleader>a", rhs = "o<esc>i# %%<cr><esc>", desc = "Add cell" },
+      { lhs = "<localleader>d", rhs = "<cmd>JupyniumScrollDown<cr>", desc = "Scroll down" },
+      { lhs = "<localleader>u", rhs = "<cmd>JupyniumScrollUp<cr>", desc = "Scroll up" },
+      { lhs = "]c", rhs = function() textobj.goto_next_cell_separator() end, desc = "Goto next cell" },
+      { lhs = "[c", rhs = function() textobj.goto_previous_cell_separator() end, desc = "Goto prev cell" },
 
-      { "<localleader>d", "<cmd>JupyniumScrollDown<cr>", "Scroll down" },
-      { "<localleader>u", "<cmd>JupyniumScrollUp<cr>", "Scroll up" },
-      { "]c", function() textobj.goto_next_cell_separator() end, "Goto next cell" },
-      { "[c", function() textobj.goto_previous_cell_separator() end, "Goto prev cell" },
+      { lhs = "<localleader>s", desc = "Server" },
+      { lhs = "<localleader>sn", rhs = function() notebook:toggle() end, desc = "Start notebook server" },
+      { lhs = "<localleader>sa", rhs = "<cmd>JupyniumStartAndAttachToServer<cr>", desc = "Jupynium start & attach" },
+      { lhs = "<localleader>ss", rhs = "<cmd>JupyniumStartSync<cr>", desc = "Jupynium start sync" },
+      { lhs = "<localleader>sS", rhs = "<cmd>JupyniumStopSync<cr>", desc = "Jupynium stop sync" },
 
-      { "<localleader>s", "Server" },
-      { "<localleader>sn", function() notebook:toggle() end, "Start notebook server" },
-      { "<localleader>sa", "<cmd>JupyniumStartAndAttachToServer<cr>", "Jupynium start & attach" },
-      { "<localleader>ss", "<cmd>JupyniumStartSync<cr>", "Jupynium start sync" },
-      { "<localleader>sS", "<cmd>JupyniumStopSync<cr>", "Jupynium stop sync" },
-
-      { "<localleader>k", "Kernel" },
-      { "<localleader>kr", "<cmd>JupyniumKernelRestart<cr>", "Restart" },
-      { "<localleader>ki", "<cmd>JupyniumKernelInterrupt<cr>", "Interrupt" },
+      { lhs = "<localleader>k", desc = "Kernel" },
+      { lhs = "<localleader>kr", rhs = "<cmd>JupyniumKernelRestart<cr>", desc = "Restart" },
+      { lhs = "<localleader>ki", rhs = "<cmd>JupyniumKernelInterrupt<cr>", desc = "Interrupt" },
     },
   }
 end
 
 return {
+  enabled = true,
   "kiyoon/jupynium.nvim",
   ft = { "python" },
   config = jupynium_config,

@@ -1,34 +1,9 @@
 local M = {}
 
-local function partition(values, predicate)
-  local satisfies, dissatisfies = {}, {}
-  for _, v in ipairs(values) do
-    if predicate(v) then
-      table.insert(satisfies, v)
-    else
-      table.insert(dissatisfies, v)
-    end
-  end
-  return satisfies, dissatisfies
-end
-
 ---@param opts {name: string, pattern: string | string[], mappings: any, exclude: string | string[]}
 function M.register_local_keymap(opts)
-  local function register_keys(keys)
-    for _, key in ipairs(keys) do
-      vim.keymap.set(key.mode or "n", key[1], key[2], { desc = key[3], buffer = 0 })
-    end
-  end
-
-  local function register_descs(descs)
-    local wk_keys = {}
-    for _, desc in ipairs(descs) do
-      wk_keys[desc[1]] = { name = desc[2], mode = desc.mode or "n" }
-    end
-    require("which-key").add(wk_keys, { buffer = 0 })
-  end
-
-  local function contains(str, pattern)
+  local function matches(str, pattern)
+    -- check if a string matches the given pattern(s)
     local type_map = {
       ["string"] = function(s, p)
         if string.find(s, p) then return true end
@@ -51,13 +26,16 @@ function M.register_local_keymap(opts)
     pattern = opts.pattern,
     group = vim.api.nvim_create_augroup(string.format("%s_keymap", opts.name), { clear = true }),
     callback = function(acmd)
-      -- exclude matching file names
-      if opts.exclude and contains(acmd.file, opts.exclude) then return true end
+      if opts.exclude and matches(acmd.file, opts.exclude) then return true end -- exclude matching file names
 
-      -- is keymap if it has 3 members(lhs, rhs, desc)
-      local keys, descs = partition(opts.mappings, function(key) return #key == 3 end)
-      register_keys(keys)
-      register_descs(descs)
+      for _, mapping in ipairs(opts.mappings) do
+        vim.keymap.set(
+          mapping.mode or "n",
+          mapping.lhs,
+          mapping.rhs or "<Nop>",
+          { desc = mapping.desc, buffer = 0, silent = true }
+        )
+      end
     end,
   })
 end

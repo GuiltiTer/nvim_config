@@ -5,7 +5,6 @@ utils.register_local_keymap {
   name = "pandoc",
   pattern = "*.md",
   mappings = {
-    { "<localleader>", "Pandoc" },
-    { "<localleader>b", function() pandoc.build { auto_open = true } end, "Buld file" },
+    { lhs = "<localleader>b", rhs = function() pandoc.build { auto_open = true } end, desc = "Buld file" },
   },
 }

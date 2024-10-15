@@ -1,6 +1,28 @@
 local utils = require "user.utils"
 
+local set_keys = function()
+  utils.register_local_keymap {
+    name = "molten",
+    pattern = "*.py",
+    exclude = ".ju.",
+    mappings = {
+      { lhs = "<localleader>", desc = "Run" },
+      { lhs = "<localleader>r", rhs = "<cmd>MoltenEvaluateLine<cr>", desc = "Evaluate line" },
+      { lhs = "<localleader>r", rhs = ":<c-u>MoltenEvaluateVisual<cr>", desc = "Evaluate visual", mode = { "v" } },
+      { lhs = "<localleader>R", rhs = ":<c-u>MoltenEvaluateVisual<cr>", desc = "Re-evaluate cell" },
+      { lhs = "<localleader><localleader>", rhs = "<cmd>MoltenEvaluateOperator<cr>", desc = "Evaluate operator" },
+      { lhs = "<localleader>o", rhs = ":noautocmd MoltenEnterOutput<cr>", desc = "Open output" },
+      { lhs = "<localleader>i", rhs = "<cmd>MoltenImagePopup<cr>", desc = "Image popup" },
+
+      { lhs = "<localleader>k", desc = "Kernel" },
+      { lhs = "<localleader>kr", rhs = "<cmd>MoltenRestart<cr>", desc = "Restart" },
+      { lhs = "<localleader>ki", rhs = "<cmd>MoltenInterrupt<cr>", desc = "Interrupt" },
+    },
+  }
+end
+
 return {
+  enabled = true,
   "benlubas/molten-nvim",
   version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
   build = ":UpdateRemotePlugins",
@@ -18,24 +40,7 @@ return {
     for k, v in pairs(opts) do
       vim.g[k] = v
     end
-
-    utils.register_local_keymap {
-      name = "molten",
-      pattern = "*.py",
-      exclude = ".ju.",
-      mappings = {
-        { "<localleader>", "Run" },
-        { "<localleader>r", "<cmd>MoltenEvaluateLine<cr>", "Evaluate line" },
-        { "<localleader>r", ":<c-u>MoltenEvaluateVisual<cr>", "Evaluate visual", mode = { "v" } },
-        { "<localleader>R", ":<c-u>MoltenEvaluateVisual<cr>", "Re-evaluate cell" },
-        { "<localleader><localleader>", "<cmd>MoltenEvaluateOperator<cr>", "Evaluate operator" },
-        { "<localleader>o", ":noautocmd MoltenEnterOutput<cr>", "Open output" },
-        { "<localleader>i", "<cmd>MoltenImagePopup<cr>", "Image popup" },
-
-        { "<localleader>k", "Kernel" },
-        { "<localleader>kr", "<cmd>MoltenRestart<cr>", "Restart" },
-        { "<localleader>ki", "<cmd>MoltenInterrupt<cr>", "Interrupt" },
-      },
-    }
   end,
+
+  config = function() set_keys() end,
 }
