@@ -4,10 +4,12 @@ local buffer_picker = function()
     sort_lastused = true,
     ignore_current_buffer = true,
     sort_mru = true,
+    previewer = false,
+    layout_config = { width = 0.5, height = 0.5, prompt_position = "top" },
     attach_mappings = function(prompt_bufnr, map)
-      local delete_buf = function() actions.delete_buffer(prompt_bufnr) end
-      map("n", "<C-d>", delete_buf)
-      map("i", "<C-d>", delete_buf)
+      map({ "i", "n" }, "<Tab>", function() actions.move_selection_next(prompt_bufnr) end)
+      map({ "i", "n" }, "<S-Tab>", function() actions.move_selection_previous(prompt_bufnr) end)
+      map({ "i", "n" }, "<C-d>", function() actions.delete_buffer(prompt_bufnr) end)
       return true
     end,
   }
