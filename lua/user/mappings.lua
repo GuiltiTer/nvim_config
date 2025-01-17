@@ -2,6 +2,8 @@ return {
   x = {
     -- basics
     ["<C-p>"] = { '"0p', desc = "Put last yanked" },
+    ["L"] = { "$", desc = "End of line" },
+    ["H"] = { "^", desc = "Beginning of line" },
 
     -- refactoring
     ["<leader>R"] = { function() require("telescope").extensions.refactoring.refactors() end, desc = "Refactor menu" },
@@ -11,6 +13,8 @@ return {
     ["<Leader>w"] = { "<cmd>wa<cr>", desc = "Save All" },
     ["Q"] = { "<cmd>q<cr>", desc = "Quit" },
     ["<C-p>"] = { '"0p', desc = "Put last yanked" },
+    ["L"] = { "$", desc = "End of line" },
+    ["H"] = { "^", desc = "Beginning of line" },
 
     -- quickfix
     ["]c"] = { "<cmd>cnext<cr>", desc = "Next qfix" },
