@@ -7,8 +7,8 @@ return {
       large_buf = { size = 1024 * 500, lines = 10000 },
       autopairs = true,
       cmp = true,
-      diagnostics_mode = 2,
       highlighturl = true,
+      diagnostics = { virtual_text = false, virtual_lines = false },
       notifications = true,
     },
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
