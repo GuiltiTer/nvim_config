@@ -10,7 +10,7 @@ return {
     search = { mode = "fuzzy" },
     modes = {
       search = {
-        enabled = true,
+        enabled = false,
         highlight = { backdrop = true },
       },
       char = {
