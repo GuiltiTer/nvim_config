@@ -8,12 +8,13 @@ return {
       autopairs = true,
       cmp = true,
       highlighturl = true,
-      diagnostics = { virtual_text = false, virtual_lines = false },
+      diagnostics = { virtual_text = true, virtual_lines = false },
       notifications = true,
     },
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     diagnostics = {
-      virtual_text = true,
+      virtual_text = { current_line = true },
+      virtual_lines = { current_line = true },
       underline = true,
     },
     options = {
