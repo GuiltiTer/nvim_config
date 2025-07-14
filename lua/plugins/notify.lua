@@ -1,14 +1,17 @@
 return {
-  "rcarriga/nvim-notify",
-  config = function()
-    local notify = require "notify"
-    ---@diagnostic disable: missing-fields
-    notify.setup {
-      render = "compact",
-      stages = "fade",
-      timeout = 3000,
-      fps = 60,
-    }
-    vim.notify = notify
-  end,
+  "folke/snacks.nvim",
+  opts = {
+    notifier = {
+      icons = {
+        error = " ",
+        warn = " ",
+        info = " ",
+        debug = " ",
+        trace = " ",
+      },
+      keep = function(notif) return vim.fn.getcmdpos() > 0 end,
+      style = "minimal",
+      more_format = " ↓ %d lines ",
+    },
+  },
 }
