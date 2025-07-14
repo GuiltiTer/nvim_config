@@ -41,7 +41,7 @@ return {
     ["<Leader>s"] = { function() require("spectre").toggle() end, desc = "Spectre" },
 
     -- telescope
-    ["<Tab>"] = { function() require("user.telescope").buffers() end, desc = "Buffers" },
+    ["<Tab>"] = { function() require("user.pickers").buffers() end, desc = "Buffers" },
     ["?"] = { function() require("telescope.builtin").current_buffer_fuzzy_find() end, desc = "search" },
 
     -- refactoring
