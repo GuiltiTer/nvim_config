@@ -26,10 +26,9 @@ return {
 
         items = {
           {
-            { name = "Files", action = "Telescope find_files", section = "" },
+            { name = "Files", action = function() require("snacks").picker.files() end, section = "" },
             { name = "Git", action = function() require("astrocore").toggle_term_cmd "lazygit" end, section = "" },
             { name = "Diff", action = "DiffviewOpen", section = "" },
-            { name = "TODO", action = "Telescope todo-comments", section = "" },
             { name = "Explorer", action = function() require("tfm").open() end, section = "" },
           },
         },

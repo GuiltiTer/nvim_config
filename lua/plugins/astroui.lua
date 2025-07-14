@@ -14,11 +14,6 @@ return {
 
         NeoTreeNormal = { link = "Normal" },
         NeoTreeNormalNC = { link = "Normal" },
-
-        TelescopeNormal = { link = "Normal" },
-        TelescopeBorder = { link = "Question" },
-        TelescopePromptTitle = { link = "String" },
-        TelescopePromptBorder = { link = "String" },
       },
       astrotheme = { -- a table of overrides/changes when applying the astrotheme theme
         -- Normal = { bg = "#000000" },

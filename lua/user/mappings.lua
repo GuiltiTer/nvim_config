@@ -4,9 +4,6 @@ return {
     ["<C-p>"] = { '"0p', desc = "Put last yanked" },
     ["L"] = { "$", desc = "End of line" },
     ["H"] = { "^", desc = "Beginning of line" },
-
-    -- refactoring
-    ["<leader>R"] = { function() require("telescope").extensions.refactoring.refactors() end, desc = "Refactor menu" },
   },
   n = {
     -- basics
@@ -26,7 +23,6 @@ return {
 
     -- undotree
     ["<Leader>U"] = { "<cmd>UndotreeToggle<cr>", desc = "Undo Tree" },
-    ["<Leader>fu"] = { "<cmd>Telescope undo<cr>", desc = "Find undo" },
 
     -- File Manager
     ["<Leader>o"] = { function() require("tfm").open() end, desc = "File Manager" },
@@ -40,12 +36,8 @@ return {
     -- spectre
     ["<Leader>s"] = { function() require("spectre").toggle() end, desc = "Spectre" },
 
-    -- telescope
+    -- pickers
     ["<Tab>"] = { function() require("user.pickers").buffers() end, desc = "Buffers" },
-    ["?"] = { function() require("telescope.builtin").current_buffer_fuzzy_find() end, desc = "search" },
-
-    -- refactoring
-    ["<Leader>R"] = { function() require("telescope").extensions.refactoring.refactors() end, desc = "Refactor Menu" },
 
     -- zen mode
     ["<Leader>uz"] = { function() require("zen-mode").toggle() end, desc = "Toggle zen mode" },
