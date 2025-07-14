@@ -3,11 +3,11 @@ return {
   opts = {
     notifier = {
       icons = {
-        error = " ",
-        warn = " ",
-        info = " ",
-        debug = " ",
-        trace = " ",
+        error = "",
+        warn = "",
+        info = "",
+        debug = "",
+        trace = "",
       },
       keep = function(notif) return vim.fn.getcmdpos() > 0 end,
       style = "minimal",
