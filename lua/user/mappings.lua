@@ -39,9 +39,6 @@ return {
     -- pickers
     ["<Tab>"] = { function() require("user.pickers").buffers() end, desc = "Buffers" },
 
-    -- zen mode
-    ["<Leader>uz"] = { function() require("zen-mode").toggle() end, desc = "Toggle zen mode" },
-
     -- neogit
     ["<Leader>gn"] = { function() require("neogit").open() end, desc = "Neogit" },
 
