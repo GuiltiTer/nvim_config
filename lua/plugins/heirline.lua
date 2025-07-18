@@ -13,10 +13,10 @@ local components = {
       local wc = self.get_word_count()
       local visual_lines = self.get_visual_line_count()
       local buff_lines = self.get_buffer_line_count()
-      local l_str = "󰬓 [" .. tostring(visual_lines) .. "|" .. tostring(buff_lines) .. "]"
-      local w_str = "󰬞 [" .. tostring(wc["visual_words"]) .. "|" .. tostring(wc["words"]) .. "]"
-      local c_str = "󰬊 [" .. tostring(wc["visual_chars"]) .. "]"
-      return l_str .. " " .. w_str .. " " .. c_str
+      local l_str = "Lines:" .. tostring(visual_lines) .. "|" .. tostring(buff_lines)
+      local w_str = "Words:" .. tostring(wc["visual_words"]) .. "|" .. tostring(wc["words"])
+      local c_str = "Chars:" .. tostring(wc["visual_chars"]) .. "|" .. tostring(wc["chars"])
+      return "(" .. l_str .. " " .. w_str .. " " .. c_str .. ")"
     end,
     condition = function() return vim.fn.mode():find "[Vv]" ~= nil end,
   },
@@ -40,8 +40,8 @@ return {
       status.component.git_diff(),
       status.component.fill(),
       status.component.cmd_info(),
-      components.visual_counter,
       status.component.fill(),
+      components.visual_counter,
       status.component.lsp(),
       status.component.virtual_env(),
       status.component.treesitter {
