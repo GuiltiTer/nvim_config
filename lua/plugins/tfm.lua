@@ -1,6 +1,7 @@
 return {
   "rolv-apneseth/tfm.nvim",
   lazy = true,
+  keys = { { "<Leader>fe", mode = { "n" }, function() require("tfm").open() end, desc = "File Manager" } },
   opts = {
     -- TFM to use
     -- Possible choices: "ranger" | "nnn" | "lf" | "yazi" (default)

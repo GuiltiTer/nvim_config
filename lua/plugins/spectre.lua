@@ -1,5 +1,8 @@
 return {
   "nvim-pack/nvim-spectre",
+  keys = {
+    { "<Leader>s", mode = { "n" }, function() require("spectre").toggle() end, desc = "Spectre" },
+  },
   dependencies = { "nvim-lua/plenary.nvim" },
   cmd = "Spectre",
   config = function()
