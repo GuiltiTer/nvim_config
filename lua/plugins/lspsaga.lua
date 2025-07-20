@@ -1,6 +1,7 @@
 return {
   "nvimdev/lspsaga.nvim",
   event = "LspAttach",
+  keys = { { "gp", mode = { "n" }, "<cmd>Lspsaga peek_definition<cr>", desc = "Peek Definition" } },
   opts = {
     lightbulb = { enable = false },
     ui = { border = "rounded" },
