@@ -51,12 +51,5 @@ return {
     -- treesj
     ["gJ"] = { function() require("treesj").join() end, desc = "Join lines" },
     ["gS"] = { function() require("treesj").split() end, desc = "Split lines" },
-
-    -- compiler
-    ["<Leader>;"] = { desc = " Compiler" },
-    ["<Leader>;;"] = { "<cmd>CompilerOpen<cr>", desc = "Compile tasks" },
-    ["<Leader>;o"] = { "<cmd>CompilerToggleResults<cr>", desc = "Toggle" },
-    ["<Leader>;r"] = { "<cmd>CompilerStop<cr>" .. "<cmd>CompilerRedo<cr>", desc = "Redo" },
-    ["<Leader>;s"] = { "<cmd>CompilerStop<cr>", desc = "Stop" },
   },
 }
