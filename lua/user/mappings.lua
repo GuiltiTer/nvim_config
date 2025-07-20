@@ -17,10 +17,6 @@ return {
     ["]c"] = { "<cmd>cnext<cr>", desc = "Next qfix" },
     ["[c"] = { "<cmd>cprev<cr>", desc = "Previous qfix" },
 
-    -- bufjump
-    ["go"] = { function() require("bufjump").backward() end, desc = "Go out" },
-    ["gi"] = { function() require("bufjump").forward() end, desc = "Go in" },
-
     -- undotree
     ["<Leader>U"] = { "<cmd>UndotreeToggle<cr>", desc = "Undo Tree" },
 
@@ -38,9 +34,6 @@ return {
 
     -- pickers
     ["<Tab>"] = { function() require("user.pickers").buffers() end, desc = "Buffers" },
-
-    -- neogit
-    ["<Leader>gn"] = { function() require("neogit").open() end, desc = "Neogit" },
 
     -- diffview
     ["<Leader>gd"] = { "<cmd>DiffviewOpen<cr>", desc = "Diff" },
