@@ -24,7 +24,8 @@ end
 return {
   "folke/snacks.nvim",
   keys = {
-    { "<Tab>", mode = { "n" }, buffers, desc = "Buffers" },
+    { "<Tab>", mode = { "n" }, buffers, desc = "Find buffers" },
+    { "<S-Tab>", mode = { "n" }, function() picker.files {} end, desc = "Find files" },
     {
       "<leader>fq",
       mode = { "n" },
