@@ -1,3 +1,7 @@
+local toggle_mini_files = function()
+  if not require("mini.files").close() then require("mini.files").open(vim.api.nvim_buf_get_name(0)) end
+end
+
 return {
   x = {
     ["<C-p>"] = { '"0p', desc = "Put last yanked" },
@@ -11,6 +15,9 @@ return {
     ["L"] = { "$", desc = "End of line" },
     ["H"] = { "^", desc = "Beginning of line" },
 
-    ["<Leader>e"] = { function() require("mini.files").open(vim.api.nvim_buf_get_name(0)) end, desc = "Files" },
+    ["<Leader>e"] = {
+      toggle_mini_files,
+      desc = "Files",
+    },
   },
 }
