@@ -1,6 +1,7 @@
 return {
   "echasnovski/mini.files",
   version = "*",
+  event = "VeryLazy",
   opts = function()
     local MiniFiles = require "mini.files"
 
