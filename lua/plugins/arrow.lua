@@ -1,5 +1,6 @@
 return {
   "otavioschwanck/arrow.nvim",
+  event = "VeryLazy",
   dependencies = {
     { "echasnovski/mini.icons" },
   },
