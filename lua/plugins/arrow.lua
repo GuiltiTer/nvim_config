@@ -1,0 +1,35 @@
+return {
+  "otavioschwanck/arrow.nvim",
+  dependencies = {
+    { "echasnovski/mini.icons" },
+  },
+  opts = {
+    show_icons = true,
+    leader_key = "m",
+    buffer_leader_key = "M",
+    separate_save_and_remove = true,
+    hide_handbook = true,
+    hide_buffer_handbook = true,
+    index_keys = "12345zcbnmfgjklwrtyuiop",
+    mappings = {
+      edit = "e",
+      delete_mode = "d",
+      clear_all_items = "D",
+      toggle = "a",
+      open_vertical = "v",
+      open_horizontal = "h",
+      quit = "q",
+      remove = "x",
+      next_item = "]",
+      prev_item = "[",
+    },
+    window = {
+      relative = "cursor",
+      width = "auto",
+      height = "auto",
+      row = 0,
+      col = 0,
+      border = "rounded",
+    },
+  },
+}
