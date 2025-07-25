@@ -1,46 +1,49 @@
-local header = [[
-=================     ===============     ===============   ========  ========
-\\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . //
-||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\/ . . .||
-|| . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||
-||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||
-|| . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\ . . . . ||
-||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\_ . .|. .||
-|| . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\ `-_/| . ||
-||_-' ||  .|/    || ||    \|.  || `-_|| ||_-' ||  .|/    || ||   | \  / |-_.||
-||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \  / |  `||
-||    `'         || ||         `'    || ||    `'         || ||   | \  / |   ||
-||            .===' `===.         .==='.`===.         .===' /==. |  \/  |   ||
-||         .=='   \_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \/  |   ||
-||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \/  |   ||
-||   .=='    _-'          '-__\._-'         '-_./__-'         `' |. /|  |   ||
-||.=='    _-'                                                     `' |  /==.||
-=='    _-'                        N E O V I M                         \/   `==
-\   _-'                                                                `-_   /
- `''                                                                      ``' ]]
+local logo = [[
+                 ▄   ▄                 
+             ▄█▄ █▀█▀█ ▄█▄             
+            ▀▀████▄█▄████▀▀            
+                 ▀█▀█▀                 
+                                       
+                                       
+    █▀▀ █░█ █ █░░ ▀█▀ █ ▀█▀ █▀▀ █▀█    
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+    █▄█ █▄█ █ █▄▄ ░█░ █ ░█░ ██▄ █▀▄    
+]]
+
+local arrow_files = function()
+  local persist = require "arrow.persist"
+  local icons = require "arrow.integration.icons"
+  local config = require "arrow.config"
+
+  persist.load_cache_file()
+
+  local section = {}
+  for i, v in pairs(vim.g.arrow_filenames) do
+    local key = config.getState("index_keys"):sub(i, i)
+    local icon, hl = icons.get_file_icon(v)
+    table.insert(section, {
+      key = tostring(key),
+      icon = { icon, hl = hl },
+      desc = { v, hl = "Normal" },
+      action = function() persist.go_to(i) end,
+      indent = 2,
+    })
+  end
+  return section
+end
+
 return {
   "folke/snacks.nvim",
   opts = {
     dashboard = {
       preset = {
-        header = header,
+        header = logo,
       },
       sections = {
         { section = "header" },
-        { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
-        {
-          icon = " ",
-          title = "Git Status",
-          section = "terminal",
-          enabled = function() return require("snacks").git.get_root() ~= nil end,
-          cmd = "git status --short --branch --renames",
-          height = 5,
-          padding = 1,
-          ttl = 60,
-          indent = 2,
-        },
+        { icon = "󱡁 ", title = "Arrow Files", padding = 2, arrow_files },
         { section = "startup" },
-        { hidden = true, key = "q", action = ":qa" },
+        { key = "q", action = ":qa", hidden = true },
       },
     },
   },
