@@ -4,7 +4,7 @@ return {
   keys = { { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash Jump" } },
   opts = {
     labels = "asdfghjklqwertyuiopzxcvbnm",
-    label = { uppercase = false },
+    label = { uppercase = true },
     prompt = { enabled = false },
 
     search = { mode = "fuzzy" },
