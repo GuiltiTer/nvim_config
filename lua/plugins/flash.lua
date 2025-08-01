@@ -1,7 +1,10 @@
 return {
   "folke/flash.nvim",
   event = "BufRead",
-  keys = { { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash Jump" } },
+  keys = {
+    { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash Jump" },
+    { "gs", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash treesitter" },
+  },
   opts = {
     labels = "asdfghjklqwertyuiopzxcvbnm",
     label = { uppercase = true },
