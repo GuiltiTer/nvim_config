@@ -25,7 +25,7 @@ return {
       prev_item = "[",
     },
     window = {
-      relative = "cursor",
+      -- relative = "cursor",
       width = "auto",
       height = "auto",
       row = 0,
