@@ -7,6 +7,7 @@ return {
   cmd = "Spectre",
   config = function()
     require("spectre").setup {
+      open_cmd = "new",
       default = { replace = { cmd = "sd" } },
       mapping = {
         ["quit"] = { map = "q", cmd = "<cmd>q<cr>", desc = "quit" },
