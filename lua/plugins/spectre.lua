@@ -1,11 +1,6 @@
 return {
   "nvim-pack/nvim-spectre",
   cmd = "Spectre",
-  keys = {
-    { "<Leader>s", desc = " Spectre" },
-    { "<Leader>sp", mode = { "n" }, function() require("spectre").toggle() end, desc = "Search project" },
-    { "<Leader>sf", mode = { "n" }, function() require("spectre").open_file_search() end, desc = "Search file" },
-  },
   opts = {
     open_cmd = "new",
     default = { replace = { cmd = "sd" } },
