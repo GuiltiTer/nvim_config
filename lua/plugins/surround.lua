@@ -7,8 +7,8 @@ return {
       normal = "gs",
       normal_cur = "gss",
       visual = "gs",
-      delete = "gds",
-      change = "gcs",
+      delete = "dgs",
+      change = "cgs",
     },
   },
 }
