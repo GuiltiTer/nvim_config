@@ -13,7 +13,7 @@ return {
     },
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     diagnostics = {
-      virtual_text = { current_line = true },
+      virtual_text = { current_line = true, prefix = "" },
       virtual_lines = { current_line = true },
       underline = true,
     },
