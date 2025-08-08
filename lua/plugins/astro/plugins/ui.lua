@@ -3,7 +3,7 @@ return {
   "AstroNvim/astroui",
   ---@type AstroUIOpts
   opts = {
-    colorscheme = require("user.env").colorscheme,
+    colorscheme = require("env").colorscheme,
     highlights = {
       init = {
         StatusLine = { link = "Normal" },

@@ -1,5 +1,5 @@
 local proc = require "user.process"
-local env = require "user.env"
+local env = require "env"
 
 ---@param opts {auto_open: boolean}
 local function build(opts)
