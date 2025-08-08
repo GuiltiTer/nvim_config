@@ -15,17 +15,6 @@ return {
         NeoTreeNormal = { link = "Normal" },
         NeoTreeNormalNC = { link = "Normal" },
       },
-      astrotheme = { -- a table of overrides/changes when applying the astrotheme theme
-        -- Normal = { bg = "#000000" },
-      },
-    },
-    status = {
-      colors = function(hl)
-        local get_hl = require("astroui").get_hlgroup
-        hl.treesitter_fg = get_hl("StatusLine").fg
-        hl.virtual_env_fg = get_hl("StatusLine").fg
-        return hl
-      end,
     },
     icons = {
       LSPLoading1 = "⠋",
