@@ -2,4 +2,4 @@
 !.gitignore
 
 lazy-lock.json
-env.lua
+lua/user/env.lua
