@@ -31,6 +31,14 @@ return {
       },
       g = {},
     },
-    mappings = require "user.mappings",
+    mappings = {
+      n = {
+        ["<Leader>c"] = false,
+        ["<Leader>C"] = false,
+        ["<Leader>h"] = false,
+        ["<Leader>n"] = false,
+        ["<Leader>Q"] = false,
+      },
+    },
   },
 }
