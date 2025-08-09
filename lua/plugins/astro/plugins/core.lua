@@ -11,9 +11,8 @@ return {
       diagnostics = { virtual_text = true, virtual_lines = false },
       notifications = true,
     },
-    -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     diagnostics = {
-      virtual_text = { current_line = true, prefix = "" },
+      virtual_text = { current_line = true, prefix = "󱈸" },
       virtual_lines = { current_line = true },
       underline = true,
     },
