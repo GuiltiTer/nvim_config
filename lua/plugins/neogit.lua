@@ -2,8 +2,7 @@ return {
   "NeogitOrg/neogit",
   keys = { { "<Leader>gn", mode = { "n" }, function() require("neogit").open() end, desc = "Neogit" } },
   opts = {
-    disable_hint = true,
-    graph_style = "unicode",
+    graph_style = "kitty",
     kind = "auto",
   },
   dependencies = {
