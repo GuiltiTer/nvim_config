@@ -6,6 +6,12 @@ return {
   config = function()
     local overseer = require "overseer"
     overseer.setup {}
-    overseer.register_template(require "plugins.overseer.templates.pandoc")
+    local templates_dir = "plugins/overseer/templates"
+    local files = vim.fn.glob(vim.fn.stdpath "config" .. "/lua/" .. templates_dir .. "/*.lua", false, true)
+    local modules = vim.tbl_map(
+      function(file) return templates_dir:gsub("/", ".") .. "." .. vim.fn.fnamemodify(file, ":t:r") end,
+      files
+    )
+    vim.tbl_map(function(mod) overseer.register_template(require(mod)) end, modules)
   end,
 }
