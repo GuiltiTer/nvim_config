@@ -4,6 +4,7 @@ return {
   opts = {
     graph_style = "kitty",
     kind = "auto",
+    notification_icon = "",
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
