@@ -11,4 +11,5 @@ return {
     },
   },
   { "nvim-neo-tree/neo-tree.nvim", enabled = false },
+  { "max397574/better-escape.nvim", enabled = false },
 }
