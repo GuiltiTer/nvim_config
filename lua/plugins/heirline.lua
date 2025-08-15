@@ -13,12 +13,20 @@ local components = {
       local wc = self.get_word_count()
       local visual_lines = self.get_visual_line_count()
       local buff_lines = self.get_buffer_line_count()
-      local l_str = "Lines:" .. tostring(visual_lines) .. "|" .. tostring(buff_lines)
-      local w_str = "Words:" .. tostring(wc["visual_words"]) .. "|" .. tostring(wc["words"])
-      local c_str = "Chars:" .. tostring(wc["visual_chars"]) .. "|" .. tostring(wc["chars"])
-      return "(" .. l_str .. " " .. w_str .. " " .. c_str .. ")"
+      return tostring(visual_lines)
+        .. ":"
+        .. tostring(wc["visual_words"])
+        .. ":"
+        .. tostring(wc["visual_chars"])
+        .. "/"
+        .. tostring(buff_lines)
+        .. ":"
+        .. tostring(wc["words"])
+        .. ":"
+        .. tostring(wc["chars"])
     end,
     condition = function() return vim.fn.mode():find "[Vv]" ~= nil end,
+    hl = "CursorLineNr",
   },
   arrow = {
     provider = function() return require("arrow.statusline").text_for_statusline_with_icons() end,
@@ -42,7 +50,6 @@ return {
         filetype = false,
       },
       components.arrow,
-      status.component.git_diff(),
       status.component.fill(),
       status.component.cmd_info(),
       status.component.fill(),
