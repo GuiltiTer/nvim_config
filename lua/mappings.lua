@@ -11,4 +11,4 @@ key({ "n", "x", "v" }, "<c-;>", "<c-^>", { desc = "Alternate buffer" })
 
 key({ "t" }, "<esc><esc>", "<c-\\><c-n>", { desc = "Escapce" })
 
-group({ "n" }, "<leader>r", "󱤵 Run")
+group({ "n" }, "<leader>;", "󱤵 Run")
