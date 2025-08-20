@@ -28,10 +28,6 @@ local components = {
     condition = function() return vim.fn.mode():find "[Vv]" ~= nil end,
     hl = "CursorLineNr",
   },
-  arrow = {
-    provider = function() return require("arrow.statusline").text_for_statusline_with_icons() end,
-    hl = "CursorLineNr",
-  },
 }
 
 return {
@@ -49,7 +45,6 @@ return {
         file_icon = { padding = { left = 1, right = 1 } },
         filetype = false,
       },
-      components.arrow,
       status.component.fill(),
       status.component.cmd_info(),
       status.component.fill(),
