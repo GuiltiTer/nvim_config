@@ -12,8 +12,8 @@ return {
       desc = "Show menu",
     },
     { mode = { "n" }, "ma", function() require("harpoon"):list():add() end, desc = "Add mark" },
-    { mode = { "n" }, "mn", function() require("harpoon"):list():next { ui_nav_wrap = true } end, desc = "Next mark" },
-    { mode = { "n" }, "mp", function() require("harpoon"):list():prev { ui_nav_wrap = true } end, desc = "Prev mark" },
+    { mode = { "n" }, "mf", function() require("harpoon"):list():next { ui_nav_wrap = true } end, desc = "Next mark" },
+    { mode = { "n" }, "md", function() require("harpoon"):list():prev { ui_nav_wrap = true } end, desc = "Prev mark" },
   },
   config = function()
     local harpoon = require "harpoon"
