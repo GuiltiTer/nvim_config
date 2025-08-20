@@ -28,6 +28,21 @@ local components = {
     condition = function() return vim.fn.mode():find "[Vv]" ~= nil end,
     hl = "CursorLineNr",
   },
+  harpoon = {
+    {
+      provider = function() return "󰓎 " end,
+      hl = "CursorLineNr",
+    },
+    condition = function()
+      local harpoon = require "harpoon"
+      local list = harpoon:list()
+      local current_file = vim.fn.expand "%:."
+      for i = 1, list:length() do
+        if current_file == list:get(i).value then return true end
+      end
+      return false
+    end,
+  },
 }
 
 return {
@@ -45,6 +60,7 @@ return {
         file_icon = { padding = { left = 1, right = 1 } },
         filetype = false,
       },
+      components.harpoon,
       status.component.fill(),
       status.component.cmd_info(),
       status.component.fill(),
