@@ -37,6 +37,7 @@ local components = {
       local harpoon = require "harpoon"
       local list = harpoon:list()
       local current_file = vim.fn.expand "%:."
+      if not list:get(1) then return false end
       for i = 1, list:length() do
         if current_file == list:get(i).value then return true end
       end
