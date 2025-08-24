@@ -1,3 +1,9 @@
+local function make_filename_relative(filename)
+  local path = vim.fn.fnamemodify(filename, ":.")
+  if string.sub(path, 1, 1) == "/" then return path end
+  return "./" .. path
+end
+
 return {
   "ThePrimeagen/harpoon",
   branch = "harpoon2",
@@ -21,7 +27,7 @@ return {
 
     harpoon:setup {
       settings = { save_on_toggle = true, sync_on_ui_close = true },
-      default = { display = function(item) return "./" .. vim.fn.fnamemodify(item.value, ":.") end },
+      default = { display = function(item) return make_filename_relative(item.value) end },
     }
 
     harpoon:extend {
@@ -35,9 +41,10 @@ return {
     harpoon:extend {
       UI_CREATE = function(ctx)
         for line_number, file in pairs(ctx.contents) do
-          if string.find("./" .. vim.fn.fnamemodify(ctx.current_file, ":."), file, 1, true) then
+          if string.find("./" .. make_filename_relative(ctx.current_file), file, 1, true) then
             vim.api.nvim_buf_add_highlight(ctx.bufnr, -1, "CursorLineNr", line_number - 1, 0, -1)
             vim.api.nvim_win_set_cursor(ctx.win_id, { line_number, 0 })
+            return
           end
         end
       end,
