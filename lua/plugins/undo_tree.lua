@@ -1,9 +1,8 @@
 return {
-  "mbbill/undotree",
-  name = "undotree",
-  cmd = "UndotreeToggle",
-  config = function()
-    vim.g.undotree_WindowLayout = 2
-    vim.g.undotree_SetFocusWhenToggle = 1
+  "jiaoshijie/undotree",
+  cmd = "Undotree",
+  opts = function(opts)
+    vim.api.nvim_create_user_command("Undotree", require("undotree").toggle, { desc = "Toggle Undotree" })
+    return opts
   end,
 }
