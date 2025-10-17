@@ -37,6 +37,7 @@ return {
         ["<Leader>h"] = false,
         ["<Leader>n"] = false,
         ["<Leader>Q"] = false,
+        ["<Leader>o"] = false,
       },
     },
   },
