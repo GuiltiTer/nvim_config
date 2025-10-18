@@ -6,9 +6,9 @@ return {
     keymaps = {
       normal = "gs",
       normal_cur = "gss",
-      visual = "gs",
-      delete = "dgs",
-      change = "cgs",
+      visual = "s",
+      delete = "ds",
+      change = "cs",
     },
   },
 }
