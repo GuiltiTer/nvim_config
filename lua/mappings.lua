@@ -8,7 +8,6 @@ key({ "n", "x", "v" }, "<C-y>", '"zy', { desc = "Yank to register z" })
 key({ "n", "x", "v" }, "H", "^", { desc = "Beginning of the line" })
 key({ "n", "x", "v" }, "L", "$", { desc = "End of the line" })
 key({ "n", "x", "v" }, "<leader>w", "<cmd>wa<cr>", { desc = "Write all" })
-key({ "n", "x", "v" }, "<c-;>", "<c-^>", { desc = "Alternate buffer" })
 
 key({ "t" }, "<esc><esc>", "<c-\\><c-n>", { desc = "Escapce" })
 
