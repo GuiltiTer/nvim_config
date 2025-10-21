@@ -4,8 +4,8 @@ return {
   event = "BufRead",
   opts = {
     keymaps = {
-      normal = "gs",
-      normal_cur = "gss",
+      normal = "s",
+      normal_cur = "ss",
       visual = "s",
       delete = "ds",
       change = "cs",
