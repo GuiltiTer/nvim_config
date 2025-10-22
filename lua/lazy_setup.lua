@@ -16,6 +16,7 @@ require("lazy").setup({
   { import = "plugins" },
 } --[[@as LazySpec]], {
   ui = { backdrop = 100 },
+  install = { colorscheme = { require("env").colorscheme } },
   performance = {
     rtp = {
       -- disable some rtp plugins, add more to your liking
