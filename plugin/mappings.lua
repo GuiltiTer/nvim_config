@@ -11,4 +11,11 @@ key({ "n", "x", "v" }, "<leader>w", "<cmd>wa<cr>", { desc = "Write all" })
 
 key({ "t" }, "<esc><esc>", "<c-\\><c-n>", { desc = "Escapce" })
 
+key(
+  { "v" },
+  "<C-g>",
+  function() vim.api.nvim_echo({ { require("user.utils.visual_counter").summary(), "CursorLineNr" } }, false, {}) end,
+  { desc = "Visual count" }
+)
+
 group({ "n" }, "<leader>;", "󱤵 Run")
