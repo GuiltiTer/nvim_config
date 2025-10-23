@@ -1,4 +1,4 @@
-local function get_diagnostic_label(props)
+local function diagnostics(props)
   local label = {}
   for _, severity in ipairs { "Error", "Warn", "Info", "Hint" } do
     local n = #vim.diagnostic.get(props.buf, { severity = vim.diagnostic.severity[string.upper(severity)] })
@@ -11,7 +11,11 @@ return {
   "b0o/incline.nvim",
   event = "VeryLazy",
   opts = {
-    render = function(props) return { get_diagnostic_label(props) } end,
+    render = function(props)
+      return {
+        diagnostics(props),
+      }
+    end,
     window = { padding = { right = 0, left = 1 }, margin = { horizontal = 0 } },
   },
 }
