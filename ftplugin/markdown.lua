@@ -1,4 +1,4 @@
-local utils = require "user.utils"
+local utils = require "user.utils.local_keymap"
 local pandoc = require "user.pandoc"
 
 utils.register_local_keymap {
