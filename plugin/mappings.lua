@@ -9,6 +9,11 @@ key({ "n", "x", "v" }, "H", "^", { desc = "Beginning of the line" })
 key({ "n", "x", "v" }, "L", "$", { desc = "End of the line" })
 key({ "n", "x", "v" }, "<leader>w", "<cmd>wa<cr>", { desc = "Write all" })
 
+key({ "n" }, "<C-w>i", function()
+  vim.cmd [[wincmd |]]
+  vim.cmd [[wincmd _]]
+end, { desc = "Focus current" })
+
 key({ "t" }, "<esc><esc>", "<c-\\><c-n>", { desc = "Escapce" })
 
 key(
