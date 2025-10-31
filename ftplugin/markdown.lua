@@ -1,10 +1,8 @@
-local utils = require "user.utils.local_keymap"
 local pandoc = require "user.pandoc"
 
-utils.register_local_keymap {
-  name = "pandoc",
-  pattern = "*.md",
-  mappings = {
-    { lhs = "<localleader>b", rhs = function() pandoc.build { auto_open = true } end, desc = "Buld file" },
-  },
-}
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.keymap.set({ "n" }, "<localleader>b", function() pandoc.build { auto_open = true } end, { desc = "Buld file" })
+  end,
+})
