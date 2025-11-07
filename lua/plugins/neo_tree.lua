@@ -2,8 +2,13 @@ return {
   "nvim-neo-tree/neo-tree.nvim",
   lazy = true,
   opts = {
-    sources = { "filesystem" },
-    source_selector = { winbar = false },
+    source_selector = {
+      winbar = false,
+      sources = {
+        { source = "filesystem" },
+        { source = "git_status" },
+      },
+    },
     default_component_configs = {
       git_status = {
         symbols = {
