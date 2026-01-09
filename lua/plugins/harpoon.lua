@@ -10,16 +10,26 @@ return {
   keys = {
     {
       mode = { "n" },
-      "mm",
+      "<leader>mm",
       function()
         local harpoon = require "harpoon"
         harpoon.ui:toggle_quick_menu(harpoon:list())
       end,
       desc = "Show menu",
     },
-    { mode = { "n" }, "ma", function() require("harpoon"):list():add() end, desc = "Add mark" },
-    { mode = { "n" }, "mf", function() require("harpoon"):list():next { ui_nav_wrap = true } end, desc = "Next mark" },
-    { mode = { "n" }, "md", function() require("harpoon"):list():prev { ui_nav_wrap = true } end, desc = "Prev mark" },
+    { mode = { "n" }, "<leader>ma", function() require("harpoon"):list():add() end, desc = "Add mark" },
+    {
+      mode = { "n" },
+      "<leader>mn",
+      function() require("harpoon"):list():next { ui_nav_wrap = true } end,
+      desc = "Next mark",
+    },
+    {
+      mode = { "n" },
+      "<leader>mp",
+      function() require("harpoon"):list():prev { ui_nav_wrap = true } end,
+      desc = "Prev mark",
+    },
   },
   config = function()
     local harpoon = require "harpoon"
