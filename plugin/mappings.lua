@@ -9,6 +9,8 @@ key({ "n", "x", "v" }, "H", "^", { desc = "Beginning of the line" })
 key({ "n", "x", "v" }, "L", "$", { desc = "End of the line" })
 key({ "n", "x", "v" }, "<leader>w", "<cmd>wa<cr>", { desc = "Write all" })
 key({ "n" }, "'", "`", { desc = "Jump to mark" })
+key({ "c" }, "<C-h>", "<Left>", { desc = "Left" })
+key({ "c" }, "<C-l>", "<Right>", { desc = "Right" })
 
 key({ "n" }, "<C-w>i", function()
   vim.cmd [[wincmd |]]
