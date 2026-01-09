@@ -8,6 +8,7 @@ key({ "n", "x", "v" }, "<C-y>", '"zy', { desc = "Yank to register z" })
 key({ "n", "x", "v" }, "H", "^", { desc = "Beginning of the line" })
 key({ "n", "x", "v" }, "L", "$", { desc = "End of the line" })
 key({ "n", "x", "v" }, "<leader>w", "<cmd>wa<cr>", { desc = "Write all" })
+key({ "n" }, "'", "`", { desc = "Jump to mark" })
 
 key({ "n" }, "<C-w>i", function()
   vim.cmd [[wincmd |]]
