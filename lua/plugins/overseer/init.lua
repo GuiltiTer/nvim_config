@@ -29,12 +29,11 @@ end
 
 return {
   "stevearc/overseer.nvim",
-  cmd = { "OverseerRun" },
+  cmd = { "OverseerRun", "OverseerShell", "OverseerToggle" },
   keys = {
     { "<leader>;t", mode = { "n" }, "<cmd>OverseerRun<cr>", desc = "Run task" },
-    { "<leader>;n", mode = { "n" }, "<cmd>OverseerBuild<cr>", desc = "New task" },
     { "<leader>;o", mode = { "n" }, "<cmd>OverseerToggle<cr>", desc = "Run task" },
-    { "<leader>;a", mode = { "n" }, "<cmd>OverseerQuickAction<cr>", desc = "Action" },
+    { "<leader>;a", mode = { "n" }, "<cmd>OverseerShell!<cr>", desc = "Add task" },
     { "<leader>;r", mode = { "n" }, rerun_last, desc = "Rerun last task" },
   },
   opts = function()
@@ -42,26 +41,28 @@ return {
     return {
       task_list = {
         direction = "right",
-        bindings = {
-          ["?"] = "ShowHelp",
-          ["a"] = "RunAction",
-          ["e"] = "Edit",
-          ["p"] = "TogglePreview",
-          ["l"] = "IncreaseDetail",
-          ["h"] = "DecreaseDetail",
-          ["k"] = "PrevTask",
-          ["j"] = "NextTask",
-          ["dd"] = "Dispose",
-          ["v"] = "OpenVsplit",
-          ["s"] = "OpenSplit",
-          ["f"] = "OpenFloat",
-          ["<cr>"] = "OpenFloat",
-          ["<C-u>"] = "ScrollOutputUp",
-          ["<C-d>"] = "ScrollOutputDown",
-          ["q"] = "Close",
-          ["<C-l>"] = false,
-          ["<C-h>"] = false,
-          ["o"] = false,
+        keymaps = {
+          ["<CR>"] = "keymap.run_action",
+          ["dd"] = { "keymap.run_action", opts = { action = "dispose" }, desc = "Dispose task" },
+          ["<C-e>"] = { "keymap.run_action", opts = { action = "edit" }, desc = "Edit task" },
+          ["w"] = { "keymap.run_action", opts = { action = "watch" }, desc = "Watch task" },
+          ["o"] = "keymap.open",
+          ["<C-v>"] = { "keymap.open", opts = { dir = "vsplit" }, desc = "Open task output in vsplit" },
+          ["<C-s>"] = { "keymap.open", opts = { dir = "split" }, desc = "Open task output in split" },
+          ["<C-t>"] = { "keymap.open", opts = { dir = "tab" }, desc = "Open task output in tab" },
+          ["<C-f>"] = { "keymap.open", opts = { dir = "float" }, desc = "Open task output in float" },
+          ["<C-q>"] = {
+            "keymap.run_action",
+            opts = { action = "open output in quickfix" },
+            desc = "Open task output in the quickfix",
+          },
+          ["p"] = "keymap.toggle_preview",
+          ["{"] = "keymap.prev_task",
+          ["}"] = "keymap.next_task",
+          ["<C-k>"] = "keymap.scroll_output_up",
+          ["<C-j>"] = "keymap.scroll_output_down",
+          ["g."] = "keymap.toggle_show_wrapped",
+          ["q"] = { "<CMD>close<CR>", desc = "Close task list" },
         },
       },
     }
