@@ -33,7 +33,7 @@ return {
   keys = {
     { "<leader>;t", mode = { "n" }, "<cmd>OverseerRun<cr>", desc = "Run task" },
     { "<leader>;o", mode = { "n" }, "<cmd>OverseerToggle<cr>", desc = "Run task" },
-    { "<leader>;a", mode = { "n" }, "<cmd>OverseerShell!<cr>", desc = "Add task" },
+    { "<leader>;a", mode = { "n" }, "<cmd>OverseerShell<cr>", desc = "Add task" },
     { "<leader>;r", mode = { "n" }, rerun_last, desc = "Rerun last task" },
   },
   opts = function()
